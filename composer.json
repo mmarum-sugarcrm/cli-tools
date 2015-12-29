@@ -1,0 +1,38 @@
+{
+  "name" : "sugarcrm/sugarcrm-cli",
+  "description" : "SugarCRM",
+  "type" : "project",
+  "license" : "Apache-2",
+  "homepage" : "http://www.sugarcrm.com",
+  "bin": ["bin/sugarcrm"],
+  "config" : {
+    "vendor-dir" : "vendor",
+    "prepend-autoloader" : false,
+    "autoloader-suffix" : "Sugar"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sugarcrm\\Sugarcrm\\": [
+        "src/",
+        ""
+      ]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Sugarcrm\\SugarcrmTests\\": [
+        "tests/src/",
+        "tests/"
+      ]
+    }
+  },
+  "require": {
+    "psr/log": "1.0.0",
+    "symfony/console": "v2.7.1",
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.6.6",
+    "composer/composer": "1.0.0-alpha9"
+  }
+}
