@@ -46,9 +46,9 @@ class SugarCliApplication extends Application
     protected $config;
 
     /**
-     * @var boolean Is instance Active?
+     * @var boolean Is tool installed on local Sugar instance?
      */
-    protected $activeInstance;
+    protected $localInstall;
 
     /**
      * Ctor
@@ -57,7 +57,7 @@ class SugarCliApplication extends Application
     public function __construct($version, LoggerTransition $logger = null)
     {
 
-        if($this->activeInstance = $version != NULL){
+        if($this->localInstall = $version != "GLOBAL"){
             $this->logger = new LoggerTransition(\LoggerManager::getLogger());
             $this->config = \SugarConfig::getInstance();
         }
@@ -67,8 +67,8 @@ class SugarCliApplication extends Application
     /**
      * @return bool TRUE if command running within an active Sugar instance
      */
-    public function isActiveInstance(){
-        return $this->activeInstance;
+    public function isLocalInstall(){
+        return $this->localInstall;
     }
 
     /**
@@ -76,7 +76,7 @@ class SugarCliApplication extends Application
      */
     public function doRun(InputInterface $input, OutputInterface $output)
     {
-        if($this->isActiveInstance()) {
+        if($this->isLocalInstall()) {
             $this->setupAdminUser();
             $this->registerActiveInstanceCommands();
         } else {
