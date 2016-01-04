@@ -9,7 +9,7 @@
 namespace Sugarcrm\Sugarcrm\Console;
 
 
-trait ActiveInstanceTrait
+trait LocalInstallTrait
 {
 
     /**
