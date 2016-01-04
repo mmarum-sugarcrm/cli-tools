@@ -22,10 +22,10 @@ class VagrantQuickstart extends Command
         $this
             ->setName('quickstart:vagrant')
             ->setDescription('Launch a Vagrant box for running your Sugar instance.')
-            ->addArgument('box', InputArgument::REQUIRED, 'Name of Vagrant Box?')
+            ->addArgument('box', InputArgument::REQUIRED, 'Name of Vagrant Box')
             ->addOption('skip-install', null, InputOption::VALUE_NONE, 'Skips automatic silent install of Sugar')
             ->addUsage("quickstart:vagrant                         <comment>Runs in fully interactive mode</comment>")
-            ->addUsage("quickstart:vagrant -n mmarum/sugar7-php54  <comment>Specify box to run non-interactively</comment>")
+            ->addUsage("quickstart:vagrant -n mmarum/sugar7-php54  <comment>Specify a box to run non-interactively</comment>")
         ;
     }
 

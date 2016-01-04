@@ -56,8 +56,9 @@ class SugarCliApplication extends Application
      */
     public function __construct($version, LoggerTransition $logger = null)
     {
+        $this->localInstall = $version != "GLOBAL" && $version != "PROJECT";
 
-        if($this->localInstall = $version != "GLOBAL"){
+        if($this->localInstall){
             $this->logger = new LoggerTransition(\LoggerManager::getLogger());
             $this->config = \SugarConfig::getInstance();
         }

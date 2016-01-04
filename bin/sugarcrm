@@ -32,7 +32,7 @@ if( preg_match("/\.composer/", dirname(__FILE__)) && file_exists(__DIR__ . '/../
     include 'sugar_version.php';
     $version = "{$sugar_version}-{$sugar_flavor}-{$sugar_build}";
 } else if( file_exists('vendor/autoload.php')) {  // NOT installed in Sugar instance and being run as local project
-    $version = NULL;
+    $version = "PROJECT";
     require_once 'vendor/autoload.php';
 }
 $app = new SugarCliApplication($version);
