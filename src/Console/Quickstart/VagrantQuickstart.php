@@ -12,6 +12,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Question\Question;
 
+/**
+ * Provides a way to launch and install Sugar with a single command using pre-built Vagrant boxes.
+ *
+ *
+ * TODO Perform silent install automatically using a generated or provided config_si.php
+ * TODO Pre-req checks that ensure a Vagrantfile is not already installed in current location
+ *
+ * Class VagrantQuickstart
+ * @package Sugarcrm\Sugarcrm\Console\Quickstart
+ */
 class VagrantQuickstart extends Command
 {
     /**
@@ -44,6 +54,8 @@ class VagrantQuickstart extends Command
     }
 
     /**
+     *
+     * TODO Provide extensibility to list of Sugar 7 boxes (allow hard coding, usage of a web service, etc.)
      * {inheritDoc}
      */
     protected function interact(InputInterface $input, OutputInterface $output){
@@ -88,7 +100,9 @@ class VagrantQuickstart extends Command
         $pwdOut = array();
         exec("pwd", $pwdOut);
         $output->writeln($pwdOut);
-        $output->writeln('<fg=green;options=bold>FINISHED!  Sugar is ready at http://localhost:8080/sugar/</>');
+        $output->writeln('<fg=green;options=bold>FINISHED!</>');
+        $output->writeln('<info>Sugar is ready at <fg=green;options=bold>http://localhost:8080/sugar/</>');
+        $output->writeln('<comment>Use `vagrant` command from here on out to interact with running box.</comment>');
     }
 
     /**

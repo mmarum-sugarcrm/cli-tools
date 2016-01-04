@@ -8,7 +8,12 @@
 
 namespace Sugarcrm\Sugarcrm\Console;
 
-
+/**
+ * Trait for Commands (@see Symfony\Component\Console\Command\Command) that need a local Sugar install to function correctly.
+ *
+ * Class LocalInstallTrait
+ * @package Sugarcrm\Sugarcrm\Console
+ */
 trait LocalInstallTrait
 {
 
