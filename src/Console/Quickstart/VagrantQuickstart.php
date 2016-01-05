@@ -80,9 +80,9 @@ class VagrantQuickstart extends Command
             });
             $question->setMaxAttempts(2);
             $box = $helper->ask($input, $output, $question);
-            $output->writeln("<info>Continuing with $box ...</info>");
             $input->setArgument('box', $box);
         }
+        $output->writeln("<info>Using $box ...</info>");
     }
 
     /**
@@ -97,12 +97,10 @@ class VagrantQuickstart extends Command
         $box = escapeshellarg($box);
         $this->callVagrant("init $box", $output);
 //        $this->callVagrant("up", $output);
-        $pwdOut = array();
-        exec("pwd", $pwdOut);
-        $output->writeln($pwdOut);
+
         $output->writeln('<fg=green;options=bold>FINISHED!</>');
         $output->writeln('<info>Sugar is ready at <fg=green;options=bold>http://localhost:8080/sugar/</>');
-        $output->writeln('<comment>Use `vagrant` command from here on out to interact with running box.</comment>');
+        $output->writeln('<comment>Use `vagrant` command from this moment on to interact with running box.</comment>');
     }
 
     /**
